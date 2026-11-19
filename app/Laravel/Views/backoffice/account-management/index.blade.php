@@ -1,4 +1,4 @@
-@extends('portal._layouts.main')
+@extends('backoffice._layouts.main')
 
 @section('content')
     <div class="container mt-5">
@@ -6,7 +6,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-end">
-                        <a href="{{ route('portal.account-management.create') }}" class="btn btn-primary">+ Create Account</a>
+                        <a href="{{ route('backoffice.account-management.create') }}" class="btn btn-primary">+ Create
+                            Account</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped">
@@ -27,9 +28,9 @@
                                             {{ $record->email }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('portal.account-management.edit', $record->id) }}"
+                                            <a href="{{ route('backoffice.account-management.edit', $record->id) }}"
                                                 class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="{{ route('portal.account-management.show', $record->id) }}"
+                                            <a href="{{ route('backoffice.account-management.show', $record->id) }}"
                                                 class="btn btn-sm btn-info">View</a>
                                         </td>
                                     </tr>

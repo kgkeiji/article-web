@@ -20,6 +20,15 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        // Schema::create('user', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name')->nullable();
+        //     $table->string('email')->unique()->nullable();
+        //     $table->string('password')->nullable();
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        //     $table->softDeletes();
+        // });
     }
 
     /**
@@ -29,6 +38,9 @@ return new class extends Migration
     {
         Schema::table('admin', function (Blueprint $table) {
             Schema::dropIfExists('admin');
+        });
+        Schema::table('user', function (Blueprint $table) {
+            Schema::dropIfExists('user');
         });
     }
 };

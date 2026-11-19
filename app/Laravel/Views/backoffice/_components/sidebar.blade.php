@@ -1,21 +1,23 @@
 <div id="sidebar" class="collapse collapse-horizontal show">
     <aside class="bg-white h-100 d-flex flex-column">
         <div class="text-body-secondary px-3 pt-4 pb-2 d-flex flex-column align-items-center gap-2 border-bottom">
-            <img src="{{ asset('assets/icons/logo-dark.png') }}" alt="Logo" class="img-fluid w-25">
+            <img src="{{ asset('assets/images/logo-dark.png') }}" alt="Logo" class="img-fluid w-25">
             <p>TheArticle CMS</p>
         </div>
         <div class="small fw-bold text-uppercase text-body-secondary px-3 pt-4 pb-2">BackOffice</div>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <ul class="nav flex-column ps-4 ms-2">
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.dashboard') }}">Dashboard</a>
+                    <li><a class="nav-link link-primary py-1 small"
+                            href="{{ route('backoffice.dashboard') }}">Dashboard</a>
                     </li>
                     <li><a class="nav-link link-primary py-1 small"
-                            href="{{ route('portal.account-management.index') }}">Account Management</a>
+                            href="{{ route('backoffice.account-management.index') }}">Account Management</a>
                     </li>
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.home') }}">Home</a></li>
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.about') }}">About</a></li>
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.contact') }}">Contact</a>
+                    <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.home') }}">Home</a></li>
+                    <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.about') }}">About</a>
+                    </li>
+                    <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.contact') }}">Contact</a>
                     </li>
                 </ul>
             </li>
@@ -27,7 +29,7 @@
                 <div class="fw-semibold text-dark">Kenneth Piangco</div>
             </div>
 
-            <a href="{{ route('portal.logout') }}" id="logoutBtn"
+            <a href="{{ route('backoffice.logout') }}" id="logoutBtn"
                 class="btn btn-outline-danger btn-sm w-100 d-flex align-items-center justify-content-center gap-2">
                 <i class="bi bi-box-arrow-right"></i>
                 Logout
@@ -40,21 +42,24 @@
 <div id="sidebarMobile" class="offcanvas offcanvas-start d-md-none" tabindex="-1" aria-label="Sidebar navigation">
     <aside class="offcanvas-body bg-white h-100 p-0 d-flex flex-column">
         <div class="text-body-secondary px-3 pt-4 pb-2 d-flex flex-column align-items-center gap-2 border-bottom">
-            <img src="{{ asset('assets/icons/logo-dark.png') }}" alt="Logo" class="img-fluid w-25">
+            <img src="{{ asset('assets/images/logo-dark.png') }}" alt="Logo" class="img-fluid w-25">
             <p>TheArticle CMS</p>
         </div>
         <div class="small fw-bold text-uppercase text-body-secondary px-3 pt-4 pb-2">BackOffice</div>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <ul class="nav flex-column ps-4 ms-2">
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.dashboard') }}">Dashboard</a>
+                    <li><a class="nav-link link-primary py-1 small"
+                            href="{{ route('backoffice.dashboard') }}">Dashboard</a>
+                    </li>
+                    {{-- <li><a class="nav-link link-primary py-1 small"
+                            href="{{ route('backoffice.account-management.index') }}">Account Management</a>
+                    </li> --}}
+                    <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.home') }}">Home</a></li>
+                    <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.about') }}">About</a>
                     </li>
                     <li><a class="nav-link link-primary py-1 small"
-                            href="{{ route('portal.account-management.index') }}">Account Management</a>
-                    </li>
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.home') }}">Home</a></li>
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.about') }}">About</a></li>
-                    <li><a class="nav-link link-primary py-1 small" href="{{ route('portal.contact') }}">Contact</a>
+                            href="{{ route('backoffice.contact') }}">Contact</a>
                     </li>
                 </ul>
             </li>

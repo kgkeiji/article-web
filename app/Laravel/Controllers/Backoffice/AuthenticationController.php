@@ -58,7 +58,7 @@ class AuthenticationController extends Controller
 
             session()->flash('notification-status', "success");
             session()->flash('notification-msg', "Successfully registered. Please login to continue.");
-            return redirect()->route('portal.auth.login');
+            return redirect()->route('backoffice.auth.login');
         } catch (\Exception $e) {
             DB::rollback();
             session()->flash('notification-status', "failed");

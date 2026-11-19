@@ -1,4 +1,4 @@
-@extends('portal._layouts.main')
+@extends('backoffice._layouts.main')
 
 @section('content')
     <div class="container">
@@ -15,7 +15,7 @@
                             <div class="col-12">
                                 <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="name" id="name"
-                                    placeholder="John Doe">
+                                    value="{{ old('name') }}" placeholder="John Doe">
                                 @if ($errors->first('name'))
                                     <div class="text-left">
                                         <small class="text-danger">
@@ -27,7 +27,8 @@
                             {{-- email --}}
                             <div class="col-12">
                                 <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                <input class="form-control" name="email" id="email" placeholder="name@example.com">
+                                <input class="form-control" name="email" id="email" value="{{ old('email') }}"
+                                    placeholder="name@example.com">
                                 @if ($errors->first('email'))
                                     <div class="text-left">
                                         <small class="text-danger">
@@ -44,10 +45,10 @@
                             </div>
                             {{-- confirm password --}}
                             <div class="col-12">
-                                <label for="confirm_password" class="form-label">Confirm Password <span
+                                <label for="password_confirmation" class="form-label">Confirm Password <span
                                         class="text-danger">*</span></label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm_password"
-                                    value="">
+                                <input type="password" class="form-control" name="password_confirmation"
+                                    id="password_confirmation" value="">
                                 @if ($errors->first('password'))
                                     <div class="text-left">
                                         <small class="text-danger">

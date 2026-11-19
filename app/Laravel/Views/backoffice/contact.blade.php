@@ -1,4 +1,4 @@
-@extends('portal._layouts.main')
+@extends('backoffice._layouts.main')
 
 @section('content')
     <main class="flex-grow-1 p-4 p-lg-5" style="min-width:0">
