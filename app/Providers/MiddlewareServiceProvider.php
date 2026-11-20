@@ -20,8 +20,8 @@ class MiddlewareServiceProvider extends ServiceProvider
         $router->aliasMiddleware('api.auth', \App\Laravel\Middlewares\Api\Authenticate::class);
         $router->aliasMiddleware('api.exist', \App\Laravel\Middlewares\Api\ExistRecord::class);
 
-        // $router->aliasMiddleware('portal.auth', \App\Laravel\Middlewares\Portal\Authenticate::class);
-        // $router->aliasMiddleware('portal.guest', \App\Laravel\Middlewares\Portal\RedirectIfAuthenticated::class);
+        $router->aliasMiddleware('portal.auth', \App\Laravel\Middlewares\Portal\Authenticate::class);
+        $router->aliasMiddleware('portal.guest', \App\Laravel\Middlewares\Portal\RedirectIfAuthenticated::class);
 
         $router->aliasMiddleware('backoffice.auth', \App\Laravel\Middlewares\Backoffice\Authenticate::class);
         $router->aliasMiddleware('backoffice.guest', \App\Laravel\Middlewares\Backoffice\RedirectIfAuthenticated::class);
