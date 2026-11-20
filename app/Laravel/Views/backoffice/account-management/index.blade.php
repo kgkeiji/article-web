@@ -11,10 +11,6 @@
                         Manage and organize user accounts
                     </p>
                 </div>
-
-                <a href="{{ route('backoffice.account-management.create') }}" class="btn btn-primary btn-sm px-3">
-                    <i class="bi bi-person-plus me-1"></i> Create Account
-                </a>
             </div>
 
             <div class="card border-0 shadow-sm">

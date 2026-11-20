@@ -32,37 +32,6 @@ class AccountManagementController extends Controller
         return view('backoffice.account-management.show', $this->data);
     }
 
-    // create
-    public function create(PageRequest $request)
-    {
-        return view('backoffice.account-management.create', $this->data);
-    }
-
-    // store
-    public function store(AdminAccountRequest $request)
-    {
-        DB::beginTransaction();
-
-        try {
-            $user = new Admin();
-            $user->name = strtoupper($request->input('name'));
-            $user->email = strtolower($request->input('email'));
-            $user->password = bcrypt($request->input('password'));
-            $user->save();
-
-            DB::commit();
-
-            session()->flash('notification-status', "success");
-            session()->flash('notification-msg', "Successfully registered. Please login to continue.");
-            return redirect()->route('backoffice.account-management.index');
-        } catch (\Exception $e) {
-            DB::rollback();
-            session()->flash('notification-status', "failed");
-            session()->flash('notification-msg', "Server failed. Please try again later.");
-            return redirect()->back();
-        }
-    }
-
     // edit
     public function edit(PageRequest $request, $id = null)
     {
