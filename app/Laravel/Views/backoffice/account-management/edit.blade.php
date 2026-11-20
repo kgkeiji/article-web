@@ -1,66 +1,113 @@
 @extends('backoffice._layouts.main')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">Edit</div>
-                </div>
-                <div class="card-body">
-                    <form method="POST" action="">
-                        @csrf
-                        <div class="row gy-2 gy-md-3 overflow-hidden">
-                            <div class="col-12">
-                                <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="name" id="name"
-                                    value="{{ old('name', $record->name) }}" placeholder="John Doe">
-                            </div>
-                            <div class="col-12">
-                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" name="email" id="email"
-                                    value="{{ old('name', $record->email) }}" placeholder="name@example.com">
-                            </div>
-                            <div class="col-12">
-                                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                                <input type="password" class="form-control" name="password" id="password" value="">
-                            </div>
-                            <div class="col-12">
-                                <label for="confirm_password" class="form-label">Confirm Password <span
-                                        class="text-danger">*</span></label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm_password"
-                                    value="">
-                            </div>
-                            <div class="col-12">
-                                <div class="d-grid">
-                                    <button class="submit-btn btn bsb-btn-xl btn-primary" type="submit">Edit
-                                        Account</button>
+    <div class="d-flex">
+        <main class="flex-grow-1 p-3 p-md-4 p-lg-5" style="min-width:0">
+
+            <div class="mb-4">
+                <h2 class="h3 fw-medium mb-1">Edit Account</h2>
+                <p class="text-primary mb-0">
+                    Update the user's personal information and account credentials.
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8 col-xl-7">
+                    <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+                        <form action="" method="POST">
+                            @csrf
+
+                            <div class="card-body p-3 p-md-4">
+
+                                <div class="row g-3">
+
+                                    <div class="col-12">
+                                        <label for="name" class="form-label fw-semibold">
+                                            Name <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            value="{{ old('name', $record->name) }}" placeholder="Enter full name" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="email" class="form-label fw-semibold">
+                                            Email Address <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            value="{{ old('email', $record->email) }}" placeholder="Enter email address"
+                                            required>
+                                    </div>
+
+                                </div>
+
+                                <hr class="my-4 text-body-secondary opacity-25">
+
+                                <div class="row g-3">
+
+                                    <div class="col-12">
+                                        <label for="password" class="form-label fw-semibold">
+                                            New Password
+                                        </label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Enter a new password">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="password_confirmation" class="form-label fw-semibold">
+                                            Confirm New Password
+                                        </label>
+                                        <input type="password" class="form-control" id="password_confirmation"
+                                            name="password_confirmation" placeholder="Confirm new password">
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="card-footer bg-white border-top p-3 p-md-4">
+                                <div class="d-flex flex-column flex-sm-row justify-content-end gap-2">
+
+                                    <a href="{{ route('backoffice.account-management.index') }}"
+                                        class="btn btn-light border px-4">
+                                        Cancel
+                                    </a>
+
+                                    <button type="submit" class="submit-btn btn btn-primary px-4">
+                                        <i class="bi bi-check2-circle me-1"></i>
+                                        Save Changes
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+
+        </main>
     </div>
 @endsection
+
 @section('page-scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const submitBtn = document.querySelector('.submit-btn');
-            const form = submitBtn.closest('form');
+            const form = submitBtn?.closest('form');
+
+            if (!form) return;
 
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
 
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "Do you want to update with the provided information?",
+                    title: 'Save Changes?',
+                    text: 'Are you sure you want to update this account?',
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, update it!'
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Yes, save changes',
+                    cancelButtonText: 'Cancel',
+                    reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
                         form.submit();

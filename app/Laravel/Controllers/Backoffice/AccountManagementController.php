@@ -95,4 +95,14 @@ class AccountManagementController extends Controller
             return redirect()->back();
         }
     }
+
+    public function delete(PageRequest $request, $id = null)
+    {
+        $user = Admin::findOrFail($id);
+        $user->forceDelete();
+
+        session()->flash('notification-status', "success");
+        session()->flash('notification-msg', "Account successfully deleted.");
+        return redirect()->route('backoffice.account-management.index');
+    }
 }

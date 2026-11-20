@@ -11,5 +11,7 @@ Route::group(['prefix' => 'account-management', 'as' => 'account-management.'], 
     Route::get('edit/{id}', ['as' => 'edit', 'uses' => 'AccountManagementController@edit']);
     Route::post('edit/{id}', ['as' => 'update', 'uses' => 'AccountManagementController@update']);
 
+    Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'AccountManagementController@delete']);
+
     Route::get('show/{id}', ['as' => 'show', 'uses' => 'AccountManagementController@show']);
 });
