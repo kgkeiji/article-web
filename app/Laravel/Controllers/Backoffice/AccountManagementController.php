@@ -4,6 +4,7 @@ namespace App\Laravel\Controllers\Backoffice;
 
 use App\Laravel\Requests\PageRequest;
 use App\Laravel\Models\Admin;
+use App\Laravel\Models\User;
 use App\Laravel\Requests\Backoffice\AdminAccountRequest;
 // use Illuminate\Support\Facades\DB;
 use DB;
@@ -22,6 +23,14 @@ class AccountManagementController extends Controller
         $this->data['records'] = Admin::paginate(10);
 
         return view('backoffice.account-management.index', $this->data);
+    }
+
+    // index for portal
+    public function index_portal(PageRequest $request)
+    {
+        $this->data['records'] = User::paginate(10);
+
+        return view('backoffice.account-management.index-portal', $this->data);
     }
 
     // show

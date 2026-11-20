@@ -15,7 +15,7 @@
 
             <div class="card border-0 shadow-sm">
                 <div class="card-header bg-body-tertiary text-primary fw-medium py-3 px-3">
-                    <i class="bi bi-people me-2"></i>Registered Accounts
+                    <i class="bi bi-people me-2"></i>Admin Accounts
                 </div>
 
                 <div class="card-body p-0">
@@ -65,6 +65,7 @@
                                         </td>
                                     </tr>
                                 @endforelse
+
                             </tbody>
                         </table>
                     </div>

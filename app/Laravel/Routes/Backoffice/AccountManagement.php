@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'account-management', 'as' => 'account-management.'], function () {
     Route::get('/', ['as' => 'index', 'uses' => 'AccountManagementController@index']);
+    Route::get('index-portal', ['as' => 'index-portal', 'uses' => 'AccountManagementController@index_portal']);
 
     Route::get('edit/{id}', ['as' => 'edit', 'uses' => 'AccountManagementController@edit']);
     Route::post('edit/{id}', ['as' => 'update', 'uses' => 'AccountManagementController@update']);

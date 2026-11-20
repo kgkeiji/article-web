@@ -17,6 +17,9 @@
                     <li><a class="nav-link link-primary py-1 small"
                             href="{{ route('backoffice.account-management.index') }}">Accounts</a>
                     </li>
+                    <li><a class="nav-link link-primary py-1 small"
+                            href="{{ route('backoffice.account-management.index-portal') }}">Account Management</a>
+                    </li>
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.home') }}">Home</a></li>
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.about') }}">About</a>
                     </li>
@@ -45,6 +48,7 @@
                     <li><a class="nav-link link-primary py-1 small"
                             href="{{ route('backoffice.account-management.index') }}">Account Management</a>
                     </li>
+
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.home') }}">Home</a></li>
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.about') }}">About</a>
                     </li>
