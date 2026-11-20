@@ -15,7 +15,6 @@
             <i class="bi bi-list fs-5"></i>
         </button>
 
-        {{-- Brand --}}
         <a class="navbar-brand mb-0 fw-semibold" href="#">
             TheArticle CMS
         </a>
@@ -51,19 +50,6 @@
                 {{-- Dropdown Menu --}}
                 <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2 p-2" aria-labelledby="navbarDropdown"
                     style="min-width: 200px;">
-
-                    <li class="px-3 py-2">
-                        <div class="fw-semibold text-dark">
-                            {{ auth('admin')->user()->name }}
-                        </div>
-                        <small class="text-secondary">
-                            Administrator
-                        </small>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
 
                     {{-- Logout --}}
                     <li>

@@ -11,6 +11,12 @@
                     <li><a class="nav-link link-primary py-1 small"
                             href="{{ route('backoffice.dashboard') }}">Dashboard</a>
                     </li>
+                    <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.profdetails') }}">Profile
+                            Details</a>
+                    </li>
+                    <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.profedit') }}">Profile
+                            Edit</a>
+                    </li>
                     <li><a class="nav-link link-primary py-1 small"
                             href="{{ route('backoffice.account-management.index') }}">Account Management</a>
                     </li>
@@ -22,19 +28,6 @@
                 </ul>
             </li>
         </ul>
-
-        <div class="mt-auto px-3 py-3 small text-body-secondary border-top">
-            <div class="mb-3">
-                <div class="text-body-secondary mb-1">Logged in as</div>
-                <div class="fw-semibold text-dark">Kenneth Piangco</div>
-            </div>
-
-            <a href="{{ route('backoffice.logout') }}" id="logoutBtn"
-                class="btn btn-outline-danger btn-sm w-100 d-flex align-items-center justify-content-center gap-2">
-                <i class="bi bi-box-arrow-right"></i>
-                Logout
-            </a>
-        </div>
 
     </aside>
 </div>
@@ -52,9 +45,9 @@
                     <li><a class="nav-link link-primary py-1 small"
                             href="{{ route('backoffice.dashboard') }}">Dashboard</a>
                     </li>
-                    {{-- <li><a class="nav-link link-primary py-1 small"
+                    <li><a class="nav-link link-primary py-1 small"
                             href="{{ route('backoffice.account-management.index') }}">Account Management</a>
-                    </li> --}}
+                    </li>
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.home') }}">Home</a></li>
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.about') }}">About</a>
                     </li>
@@ -64,11 +57,6 @@
                 </ul>
             </li>
         </ul>
-
-        <div class="mt-auto px-3 py-3 small text-body-secondary">
-            Logged in as:
-            <div class="text-dark">Kenneth Piangco</div>
-        </div>
 
     </aside>
 </div>

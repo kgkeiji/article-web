@@ -15,6 +15,8 @@ Route::group([
 
     Route::group(['middleware' => "backoffice.auth"], function () {
         Route::get('/', ['as' => 'dashboard', 'uses' => 'MainController@index']);
+        Route::get('profdetails', ['as' => 'profdetails', 'uses' => 'MainController@profdetails']);;
+        Route::get('profedit', ['as' => 'profedit', 'uses' => 'MainController@profedit']);;
         Route::get('home', ['as' => 'home', 'uses' => 'MainController@home']);;
         Route::get('about', ['as' => 'about', 'uses' => 'MainController@about']);;
         Route::get('contact', ['as' => 'contact', 'uses' => 'MainController@contact']);;
