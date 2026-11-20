@@ -14,7 +14,7 @@
                     <a href="{{ route('web.about') }}" class="btn btn-primary btn-lg">
                         See More
                     </a>
-                    <a href="#" class="btn btn-secondary btn-lg">
+                    <a href="{{ route('web.contact') }}" class="btn btn-secondary btn-lg">
                         Know More
                     </a>
                 </div>
@@ -48,7 +48,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 py-5 text-center">
             <div class="col">
                 <div class="card h-100 d-flex flex-column justify-content-center align-items-center py-5">
-                    <img src="{{ 'assets/icons/1 content creation.png' }}" class="card-img-top w-50 h-auto opacity-75"
+                    <img src="{{ 'assets/images/1 content creation.png' }}" class="card-img-top w-50 h-auto opacity-75"
                         alt="Content Creation">
                     <div class="card-body">
                         <h5 class="card-title">Content Creation</h5>
@@ -58,7 +58,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 d-flex flex-column justify-content-center align-items-center py-5 ">
-                    <img src="{{ 'assets/icons/2 fresh experience.png' }}" class="card-img-top w-50 h-auto opacity-75"
+                    <img src="{{ 'assets/images/2 fresh experience.png' }}" class="card-img-top w-50 h-auto opacity-75"
                         alt="Fresh Experience">
                     <div class="card-body">
                         <h5 class="card-title">Fresh Experience</h5>
@@ -68,7 +68,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 d-flex flex-column justify-content-center align-items-center py-5">
-                    <img src="{{ 'assets/icons/3 great community.png' }}" class="card-img-top w-50 h-auto opacity-75"
+                    <img src="{{ 'assets/images/3 great community.png' }}" class="card-img-top w-50 h-auto opacity-75"
                         alt="Great Community">
                     <div class="card-body">
                         <h5 class="card-title">Great Community</h5>
@@ -78,7 +78,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 d-flex flex-column justify-content-center align-items-center py-5">
-                    <img src="{{ 'assets/icons/4 modern design.png' }}" class="card-img-top w-50 h-auto opacity-75"
+                    <img src="{{ 'assets/images/4 modern design.png' }}" class="card-img-top w-50 h-auto opacity-75"
                         alt="Modern Design">
                     <div class="card-body">
                         <h5 class="card-title">Modern Design</h5>

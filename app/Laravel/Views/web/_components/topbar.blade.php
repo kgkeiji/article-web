@@ -28,7 +28,7 @@
                         href="{{ route('web.contact') }}">Contact</a>
                 </li>
             </ul>
-            <a class="btn btn-outline-primary" href="#">Sign Up</a>
+            <a class="btn btn-outline-primary" href="{{ route('portal.auth.register') }}">Sign Up</a>
         </div>
     </div>
 </nav>

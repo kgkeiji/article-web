@@ -17,6 +17,10 @@ Route::group([
         Route::get('/', ['as' => 'home', 'uses' => 'MainController@index']);
         Route::get('about', ['as' => 'about', 'uses' => 'MainController@about']);;
         Route::get('contact', ['as' => 'contact', 'uses' => 'MainController@contact']);;
+        Route::get('articles', ['as' => 'articles', 'uses' => 'MainController@articles']);;
+        Route::get('article', ['as' => 'article', 'uses' => 'MainController@article']);;
+
+        include_once app_path("Laravel/Routes/Portal/ProfileManagement.php");
 
         Route::get('logout', ['as' => 'logout', 'uses' => 'AuthenticationController@logout']);;
     });
