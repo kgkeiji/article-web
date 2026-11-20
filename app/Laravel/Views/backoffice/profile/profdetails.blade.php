@@ -12,13 +12,13 @@
                         <div class="card-body">
                             <label>Name:</label>
                             <p>
-                                {{ auth('admin')->user()->name }}
-
+                                {{ $record->name }}
                             </p>
                             <label>Email:</label>
                             <p>
-                                {{ auth('admin')->user()->email }}
+                                {{ $record->email }}
                             </p>
+                            <a href="{{ route('backoffice.profile.edit') }}" class="btn btn-sm btn-primary">Edit</a>
                         </div>
                     @endauth
 

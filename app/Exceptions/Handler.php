@@ -18,7 +18,7 @@ class Handler extends ExceptionHandler
                 $api_response = true;
             }
 
-            // dd($exception); 
+            dd($exception);
 
             switch (get_class($exception)) {
                 case "libphonenumber\NumberParseException":

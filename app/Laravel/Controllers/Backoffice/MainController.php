@@ -14,18 +14,6 @@ class MainController extends Controller
         return view('backoffice.dashboard', $this->data);
     }
 
-    public function profdetails(PageRequest $request)
-    {
-        $this->data['page-title'] = 'Dashboard';
-        return view('backoffice.profile.profdetails', $this->data);
-    }
-
-    public function profedit(PageRequest $request)
-    {
-        $this->data['page-title'] = 'Dashboard';
-        return view('backoffice.profile.profedit', $this->data);
-    }
-
     public function home(PageRequest $request)
     {
         $this->data['page-title'] = 'Backoffice - Home Page';

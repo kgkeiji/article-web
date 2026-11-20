@@ -8,38 +8,47 @@
                     <div class="card-header">Edit</div>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form action="{{ route('backoffice.profile.update') }}" method="POST">
                         @csrf
-                        <div class="row gy-2 gy-md-3 overflow-hidden">
-                            @auth
+                        <div class="card-body p-4 p-md-5">
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label fw-semibold">Full Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        value="{{ old('name', $record->name) }}" required>
+                                    @if ($errors->first('name'))
+                                        <small class="text-danger">{{ $errors->first('name') }}</small>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label fw-semibold">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        value="{{ old('email', $record->email) }}" required>
+                                    @if ($errors->first('email'))
+                                        <small class="text-danger">{{ $errors->first('email') }}</small>
+                                    @endif
+                                </div>
 
-                                <div class="col-12">
-                                    <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="name" id="name" value=""
-                                        placeholder="John Doe">
+                            </div>
+                            <div class="col-12">
+                                <label for="password" class="form-label">New Password</label>
+                                <input type="password" class="form-control" name="password" id="password"
+                                    autocomplete="new-password">
+                                @if ($errors->first('password'))
+                                    <small class="text-danger">{{ $errors->first('password') }}</small>
+                                @endif
+                            </div>
+                            <div class="col-12">
+                                <label for="password_confirmation" class="form-label">Confirm New Password</label>
+                                <input type="password" class="form-control" name="password_confirmation"
+                                    id="password_confirmation" autocomplete="new-password">
+                            </div>
+                            <div class="col-12">
+                                <div class="d-grid">
+                                    <button class="submit-btn btn bsb-btn-xl btn-primary" type="submit">Edit
+                                        Account</button>
                                 </div>
-                                <div class="col-12">
-                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" name="email" id="email" value=""
-                                        placeholder="name@example.com">
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password" value="">
-                                </div>
-                                <div class="col-12">
-                                    <label for="confirm_password" class="form-label">Confirm Password <span
-                                            class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="confirm_password" id="confirm_password"
-                                        value="">
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-grid">
-                                        <button class="submit-btn btn bsb-btn-xl btn-primary" type="submit">Edit
-                                            Account</button>
-                                    </div>
-                                </div>
-                            @endauth
+                            </div>
 
                         </div>
                     </form>

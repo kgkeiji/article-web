@@ -32,38 +32,39 @@
     {{-- RIGHT SECTION --}}
     <div class="d-flex align-items-center gap-2">
 
-        @auth('admin')
-            <div class="dropdown">
+        <div class="dropdown">
 
-                {{-- User Dropdown Toggle --}}
-                <button class="btn btn-light bg-white border-0 d-flex align-items-center gap-2" type="button"
-                    id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            {{-- User Dropdown Toggle --}}
+            <button class="btn btn-light bg-white border-0 d-flex align-items-center gap-2" type="button"
+                id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
 
-                    <span class="d-none d-md-inline text-secondary">
+                <span class="d-none d-md-inline text-secondary">
+                    @auth('admin')
                         {{ auth('admin')->user()->name }}
-                    </span>
+                    @endauth
 
-                    <i class="bi bi-chevron-down text-secondary small"></i>
-                    <i class="bi bi-person-circle text-primary fs-2"></i>
-                </button>
+                </span>
 
-                {{-- Dropdown Menu --}}
-                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2 p-2" aria-labelledby="navbarDropdown"
-                    style="min-width: 200px;">
+                <i class="bi bi-chevron-down text-secondary small"></i>
+                <i class="bi bi-person-circle text-primary fs-2"></i>
+            </button>
 
-                    {{-- Logout --}}
-                    <li>
-                        <a href="{{ route('backoffice.logout') }}" id="logoutBtn"
-                            class="dropdown-item text-danger rounded d-flex align-items-center gap-2 py-2">
+            {{-- Dropdown Menu --}}
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2 p-2" aria-labelledby="navbarDropdown"
+                style="min-width: 200px;">
 
-                            <i class="bi bi-box-arrow-right"></i>
-                            Logout
-                        </a>
-                    </li>
+                {{-- Logout --}}
+                <li>
+                    <a href="{{ route('backoffice.logout') }}" id="logoutBtn"
+                        class="dropdown-item text-danger rounded d-flex align-items-center gap-2 py-2">
 
-                </ul>
-            </div>
-        @endauth
+                        <i class="bi bi-box-arrow-right"></i>
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+        </div>
 
     </div>
 </nav>
