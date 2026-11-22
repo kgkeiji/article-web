@@ -15,10 +15,10 @@
                             href="{{ route('backoffice.profile.index') }}">Profile</a>
                     </li>
                     <li><a class="nav-link link-primary py-1 small"
-                            href="{{ route('backoffice.account-management.index') }}">Accounts</a>
+                            href="{{ route('backoffice.account-management.index') }}">Accounts - Admin</a>
                     </li>
                     <li><a class="nav-link link-primary py-1 small"
-                            href="{{ route('backoffice.account-management.index-portal') }}">Account Management</a>
+                            href="{{ route('backoffice.account-management.index-portal') }}">Accounts - Portal</a>
                     </li>
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.home') }}">Home</a></li>
                     <li><a class="nav-link link-primary py-1 small" href="{{ route('backoffice.about') }}">About</a>

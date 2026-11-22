@@ -50,10 +50,6 @@
                                                     <i class="bi bi-pencil-square"></i>
                                                     <span class="d-none d-md-inline ms-1">Edit</span>
                                                 </a>
-                                                <a href="{{ route('backoffice.account-management.delete', $record->id) }}"
-                                                    class="btn btn-danger btn-sm" title="Delete">
-                                                    <i class="bi bi-trash"></i>
-                                                </a>
                                             </div>
                                         </td>
                                     </tr>

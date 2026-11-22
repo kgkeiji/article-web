@@ -39,20 +39,15 @@
                                         </td>
                                         <td class="py-3 text-end pe-3">
                                             <div class="d-inline-flex gap-1">
-                                                <a href="{{ route('backoffice.account-management.show', $record->id) }}"
+                                                <a href="{{ route('backoffice.account-management.show-portal', $record->id) }}"
                                                     class="btn btn-light border btn-sm" title="View Account">
                                                     <i class="bi bi-eye"></i>
                                                     <span class="d-none d-md-inline ms-1">View</span>
                                                 </a>
-
-                                                <a href="{{ route('backoffice.account-management.edit', $record->id) }}"
+                                                <a href="{{ route('backoffice.account-management.edit-portal', $record->id) }}"
                                                     class="btn btn-primary btn-sm" title="Edit Account">
                                                     <i class="bi bi-pencil-square"></i>
                                                     <span class="d-none d-md-inline ms-1">Edit</span>
-                                                </a>
-                                                <a href="{{ route('backoffice.account-management.delete', $record->id) }}"
-                                                    class="btn btn-danger btn-sm" title="Delete">
-                                                    <i class="bi bi-trash"></i>
                                                 </a>
                                             </div>
                                         </td>
