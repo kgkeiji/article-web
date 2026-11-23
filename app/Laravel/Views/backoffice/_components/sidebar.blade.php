@@ -49,7 +49,7 @@
                     <ul class="nav flex-column gap-1">
 
                         <li>
-                            <a href="{{ route('backoffice.account-management.index') }}"
+                            <a href="{{ route('backoffice.admin-management.index') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2">
                                 <i class="bi bi-shield-lock fs-5"></i>
                                 <span class="small fw-medium">Admin Accounts</span>
@@ -57,45 +57,10 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('backoffice.account-management.index-portal') }}"
+                            <a href="{{ route('backoffice.user-management.index') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2">
                                 <i class="bi bi-people fs-5"></i>
                                 <span class="small fw-medium">User Accounts</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                {{-- PAGE MANAGEMENT --}}
-                <li class="nav-item mt-3">
-                    <div class="small fw-bold text-uppercase text-body-secondary px-3 mb-2">
-                        Page Management
-                    </div>
-
-                    <ul class="nav flex-column gap-1">
-
-                        <li>
-                            <a href="{{ route('backoffice.home') }}"
-                                class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2">
-                                <i class="bi bi-house-door fs-5"></i>
-                                <span class="small fw-medium">Home Page</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('backoffice.about') }}"
-                                class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2">
-                                <i class="bi bi-info-circle fs-5"></i>
-                                <span class="small fw-medium">About Page</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('backoffice.contact') }}"
-                                class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2">
-                                <i class="bi bi-envelope fs-5"></i>
-                                <span class="small fw-medium">Contact Page</span>
                             </a>
                         </li>
 
@@ -176,7 +141,7 @@
                     <ul class="nav flex-column gap-1">
 
                         <li>
-                            <a href="{{ route('backoffice.account-management.index') }}"
+                            <a href="{{ route('backoffice.admin-management.index') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2"
                                 data-bs-dismiss="offcanvas">
                                 <i class="bi bi-shield-lock fs-5"></i>
@@ -185,49 +150,11 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('backoffice.account-management.index-portal') }}"
+                            <a href="{{ route('backoffice.user-management.index') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2"
                                 data-bs-dismiss="offcanvas">
                                 <i class="bi bi-people fs-5"></i>
                                 <span class="small fw-medium">User Accounts</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                {{-- PAGE MANAGEMENT --}}
-                <li class="mt-3">
-                    <div class="small fw-bold text-uppercase text-body-secondary px-3 mb-2">
-                        Page Management
-                    </div>
-
-                    <ul class="nav flex-column gap-1">
-
-                        <li>
-                            <a href="{{ route('backoffice.home') }}"
-                                class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2"
-                                data-bs-dismiss="offcanvas">
-                                <i class="bi bi-house-door fs-5"></i>
-                                <span class="small fw-medium">Home Page</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('backoffice.about') }}"
-                                class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2"
-                                data-bs-dismiss="offcanvas">
-                                <i class="bi bi-info-circle fs-5"></i>
-                                <span class="small fw-medium">About Page</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('backoffice.contact') }}"
-                                class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2"
-                                data-bs-dismiss="offcanvas">
-                                <i class="bi bi-envelope fs-5"></i>
-                                <span class="small fw-medium">Contact Page</span>
                             </a>
                         </li>
 

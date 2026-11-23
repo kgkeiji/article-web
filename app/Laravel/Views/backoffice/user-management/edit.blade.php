@@ -14,8 +14,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8 col-xl-7">
                     <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
-                        <form action="{{ route('backoffice.account-management.update-portal', $record->id) }}"
-                            method="POST">
+                        <form action="{{ route('backoffice.user-management.update', $record->id) }}" method="POST">
                             @csrf
 
                             <div class="card-body p-3 p-md-4">
@@ -86,7 +85,7 @@
                             <div class="card-footer bg-white border-top p-3 p-md-4">
                                 <div class="d-flex flex-column flex-sm-row justify-content-end gap-2">
 
-                                    <a href="{{ route('backoffice.account-management.index-portal') }}"
+                                    <a href="{{ route('backoffice.user-management.index') }}"
                                         class="btn btn-light border px-4">
                                         Cancel
                                     </a>

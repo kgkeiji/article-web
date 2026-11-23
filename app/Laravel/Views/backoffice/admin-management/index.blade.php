@@ -15,7 +15,7 @@
 
             <div class="card border-0 shadow-sm">
                 <div class="card-header bg-body-tertiary text-primary fw-medium py-3 px-3">
-                    <i class="bi bi-people me-2"></i>User Accounts
+                    <i class="bi bi-people me-2"></i>Admin Accounts
                 </div>
 
                 <div class="card-body p-0">
@@ -39,12 +39,13 @@
                                         </td>
                                         <td class="py-3 text-end pe-3">
                                             <div class="d-inline-flex gap-1">
-                                                <a href="{{ route('backoffice.account-management.show-portal', $record->id) }}"
+                                                <a href="{{ route('backoffice.admin-management.show', $record->id) }}"
                                                     class="btn btn-light border btn-sm" title="View Account">
                                                     <i class="bi bi-eye"></i>
                                                     <span class="d-none d-md-inline ms-1">View</span>
                                                 </a>
-                                                <a href="{{ route('backoffice.account-management.edit-portal', $record->id) }}"
+
+                                                <a href="{{ route('backoffice.admin-management.edit', $record->id) }}"
                                                     class="btn btn-primary btn-sm" title="Edit Account">
                                                     <i class="bi bi-pencil-square"></i>
                                                     <span class="d-none d-md-inline ms-1">Edit</span>

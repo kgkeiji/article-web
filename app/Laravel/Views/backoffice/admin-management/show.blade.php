@@ -41,12 +41,12 @@
 
                     <div class="card-footer bg-white border-top py-3 px-3 px-md-4">
                         <div class="d-flex justify-content-end gap-2">
-                            <a href="{{ route('backoffice.account-management.index') }}"
+                            <a href="{{ route('backoffice.admin-management.index') }}"
                                 class="btn btn-light border btn-sm px-3">
                                 <i class="bi bi-arrow-left me-1"></i> Back
                             </a>
 
-                            <a href="{{ route('backoffice.account-management.edit', $record->id) }}"
+                            <a href="{{ route('backoffice.admin-management.edit', $record->id) }}"
                                 class="btn btn-primary btn-sm px-3">
                                 <i class="bi bi-pencil-square me-1"></i> Edit Account
                             </a>

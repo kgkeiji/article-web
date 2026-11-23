@@ -14,14 +14,12 @@ Route::group([
     include_once app_path("Laravel/Routes/Backoffice/Auth.php");
 
     Route::group(['middleware' => "backoffice.auth"], function () {
+
         Route::get('/', ['as' => 'dashboard', 'uses' => 'MainController@index']);
-        Route::get('home', ['as' => 'home', 'uses' => 'MainController@home']);;
-        Route::get('about', ['as' => 'about', 'uses' => 'MainController@about']);;
-        Route::get('contact', ['as' => 'contact', 'uses' => 'MainController@contact']);;
 
-        Route::get('logout', ['as' => 'logout', 'uses' => 'AuthenticationController@logout']);;
-
-        include_once app_path("Laravel/Routes/Backoffice/AccountManagement.php");
+        include_once app_path("Laravel/Routes/Backoffice/AdminManagement.php");
+        include_once app_path("Laravel/Routes/Backoffice/UserManagement.php");
         include_once app_path("Laravel/Routes/Backoffice/ProfileManagement.php");
+        Route::get('logout', ['as' => 'logout', 'uses' => 'AuthenticationController@logout']);;
     });
 });
