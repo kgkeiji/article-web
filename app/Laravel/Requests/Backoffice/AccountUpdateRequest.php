@@ -3,14 +3,20 @@
 namespace App\Laravel\Requests\Backoffice;
 
 use App\Laravel\Requests\RequestManager;
+use Illuminate\Validation\Rule;
 
 class AccountUpdateRequest extends RequestManager
 {
     public function rules()
     {
+        $id = $this->route('id') ?? auth('admin')->id();
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:admin,email,',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('admin', 'email')->ignore($id),
+            ],
             'password' => 'nullable|string|min:8|confirmed',
         ];
     }

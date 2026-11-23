@@ -8,7 +8,7 @@
     <title>Register Page</title>
     <style>
         #col-1 {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(68, 205, 255, 0.3)), url({{ asset('assets/images/office.png') }});
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(68, 205, 255, 0.3)), url({{ asset('assets/images/diorama.png') }});
             background-size: cover;
             background-position: center;
 

@@ -24,6 +24,13 @@
                                         <input type="text" class="form-control" id="name" name="name"
                                             value="{{ old('name', $record->name) }}" placeholder="Enter your full name">
                                     </div>
+                                    @if ($errors->first('name'))
+                                        <div class="text-left">
+                                            <small class="text-danger">
+                                                {{ $errors->first('name') }}
+                                            </small>
+                                        </div>
+                                    @endif
                                     {{-- email --}}
                                     <div class="col-12">
                                         <label for="email" class="form-label fw-semibold">
@@ -32,6 +39,13 @@
                                         <input type="email" class="form-control" id="email" name="email"
                                             value="{{ old('email', $record->email) }}"
                                             placeholder="Enter your email address">
+                                        @if ($errors->first('email'))
+                                            <div class="text-left">
+                                                <small class="text-danger">
+                                                    {{ $errors->first('email') }}
+                                                </small>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <hr class="my-4 text-body-secondary opacity-25">
@@ -43,6 +57,13 @@
                                         </label>
                                         <input type="password" class="form-control" id="password" name="password"
                                             placeholder="Enter a new password">
+                                        @if ($errors->first('password'))
+                                            <div class="text-left">
+                                                <small class="text-danger">
+                                                    {{ $errors->first('password') }}
+                                                </small>
+                                            </div>
+                                        @endif
                                     </div>
                                     {{-- confirm --}}
                                     <div class="col-12">
@@ -51,6 +72,13 @@
                                         </label>
                                         <input type="password" class="form-control" id="password_confirmation"
                                             name="password_confirmation" placeholder="Confirm your new password">
+                                        @if ($errors->first('password'))
+                                            <div class="text-left">
+                                                <small class="text-danger">
+                                                    {{ $errors->first('password') }}
+                                                </small>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
