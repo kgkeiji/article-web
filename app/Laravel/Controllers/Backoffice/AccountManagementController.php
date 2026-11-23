@@ -5,7 +5,7 @@ namespace App\Laravel\Controllers\Backoffice;
 use App\Laravel\Requests\PageRequest;
 use App\Laravel\Models\Admin;
 use App\Laravel\Models\User;
-use App\Laravel\Requests\Backoffice\AdminAccountRequest;
+use App\Laravel\Requests\Backoffice\AccountUpdateRequest;
 use Illuminate\Support\Facades\DB;
 // use DB;
 
@@ -65,7 +65,7 @@ class AccountManagementController extends Controller
     }
 
     // update admin backoffice
-    public function update(PageRequest $request, $id = null)
+    public function update(AccountUpdateRequest $request, $id = null)
     {
         DB::beginTransaction();
 
@@ -90,7 +90,7 @@ class AccountManagementController extends Controller
     }
 
     // update portal users
-    public function update_portal(PageRequest $request, $id = null)
+    public function update_portal(AccountUpdateRequest $request, $id = null)
     {
         DB::beginTransaction();
 

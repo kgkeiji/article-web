@@ -67,9 +67,19 @@
                     </div>
                 </div>
 
-                @if (method_exists($records, 'links'))
-                    <div class="card-footer bg-white border-top py-3 px-3">
-                        {{ $records->links() }}
+                @if ($records instanceof \Illuminate\Pagination\AbstractPaginator && $records->hasPages())
+                    <div class="card-footer bg-body-tertiary border-top py-3 px-3">
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+                            <small class="text-body-secondary">
+                                Showing <span class="fw-medium">{{ $records->firstItem() }}</span>
+                                to <span class="fw-medium">{{ $records->lastItem() }}</span>
+                                of <span class="fw-medium">{{ $records->total() }}</span> accounts
+                            </small>
+
+                            <nav aria-label="Account pagination">
+                                {{ $records->onEachSide(1)->links('pagination::bootstrap-5') }}
+                            </nav>
+                        </div>
                     </div>
                 @endif
             </div>

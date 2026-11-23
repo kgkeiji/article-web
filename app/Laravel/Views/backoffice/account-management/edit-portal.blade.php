@@ -14,28 +14,41 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8 col-xl-7">
                     <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
-                        <form action="{{ route('backoffice.account-management.update-portal', $record->id) }}" method="POST">
+                        <form action="{{ route('backoffice.account-management.update-portal', $record->id) }}"
+                            method="POST">
                             @csrf
 
                             <div class="card-body p-3 p-md-4">
 
                                 <div class="row g-3">
-
                                     <div class="col-12">
                                         <label for="name" class="form-label fw-semibold">
                                             Name <span class="text-danger">*</span>
                                         </label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ old('name', $record->name) }}" placeholder="Enter full name" required>
+                                            value="{{ old('name', $record->name) }}" placeholder="Enter full name">
+                                        @if ($errors->first('name'))
+                                            <div class="text-left">
+                                                <small class="text-danger">
+                                                    {{ $errors->first('name') }}
+                                                </small>
+                                            </div>
+                                        @endif
                                     </div>
 
                                     <div class="col-12">
                                         <label for="email" class="form-label fw-semibold">
                                             Email Address <span class="text-danger">*</span>
                                         </label>
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            value="{{ old('email', $record->email) }}" placeholder="Enter email address"
-                                            required>
+                                        <input class="form-control" id="email" name="email"
+                                            value="{{ old('email', $record->email) }}" placeholder="Enter email address">
+                                        @if ($errors->first('email'))
+                                            <div class="text-left">
+                                                <small class="text-danger">
+                                                    {{ $errors->first('email') }}
+                                                </small>
+                                            </div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -58,6 +71,13 @@
                                         </label>
                                         <input type="password" class="form-control" id="password_confirmation"
                                             name="password_confirmation" placeholder="Confirm new password">
+                                        @if ($errors->first('password'))
+                                            <div class="text-left">
+                                                <small class="text-danger">
+                                                    {{ $errors->first('password') }}
+                                                </small>
+                                            </div>
+                                        @endif
                                     </div>
 
                                 </div>

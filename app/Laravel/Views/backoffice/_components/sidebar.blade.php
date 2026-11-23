@@ -105,13 +105,6 @@
             </ul>
         </div>
 
-        {{-- SIDEBAR FOOTER --}}
-        <div class="border-top p-3">
-            <div class="d-flex align-items-center gap-2 px-2">
-                <small class="text-body-secondary">TheArticle CMS</small>
-                <span class="ms-auto badge text-bg-light">Admin</span>
-            </div>
-        </div>
 
     </aside>
 </div>
@@ -242,14 +235,6 @@
                 </li>
 
             </ul>
-        </div>
-
-        {{-- FOOTER --}}
-        <div class="border-top p-3">
-            <div class="d-flex align-items-center gap-2 px-2">
-                <small class="text-body-secondary">TheArticle CMS</small>
-                <span class="ms-auto badge text-bg-light">Admin</span>
-            </div>
         </div>
 
     </aside>

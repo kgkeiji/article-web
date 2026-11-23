@@ -8,11 +8,9 @@ class AccountUpdateRequest extends RequestManager
 {
     public function rules()
     {
-        $id = auth('admin')->id();
-
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:admin,email,' . $id,
+            'email' => 'required|email|unique:admin,email,',
             'password' => 'nullable|string|min:8|confirmed',
         ];
     }
