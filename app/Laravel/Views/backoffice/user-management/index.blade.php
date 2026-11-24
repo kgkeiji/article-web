@@ -49,6 +49,18 @@
                                                     <i class="bi bi-pencil-square"></i>
                                                     <span class="d-none d-md-inline ms-1">Edit</span>
                                                 </a>
+                                                <form action="{{ route('backoffice.user-management.delete', $record->id) }}"
+                                                    method="GET" class="delete-form d-inline">
+
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button type="submit" class="submit-btn btn btn-danger btn-sm"
+                                                        title="Delete Account">
+                                                        <i class="bi bi-trash"></i>
+                                                        <span class="d-none d-md-inline ms-1">Delete</spa n>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -85,4 +97,39 @@
 
         </main>
     </div>
+@endsection
+@section('page-scripts')
+    <script>
+        document.querySelectorAll('.delete-form').forEach((form) => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                Swal.fire({
+                    title: "Delete Account?",
+                    text: "Are you sure you want to delete this account?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "red",
+                    cancelButtonColor: "#6c757d",
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: 'Cancel',
+                    buttonsStyling: false,
+                    customClass: {
+                        confirmButton: 'btn btn-danger me-2',
+                        cancelButton: 'btn btn-secondary'
+                    }
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+                        form.submit();
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Account has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

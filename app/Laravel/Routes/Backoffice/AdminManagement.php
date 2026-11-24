@@ -8,5 +8,7 @@ Route::group(['prefix' => 'admin-management', 'as' => 'admin-management.'], func
     Route::get('edit/{id}', ['as' => 'edit', 'uses' => 'AdminManagementController@edit']);
     Route::post('edit/{id}', ['as' => 'update', 'uses' => 'AdminManagementController@update']);
 
+    Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'AdminManagementController@delete']);
+
     Route::get('show/{id}', ['as' => 'show', 'uses' => 'AdminManagementController@show']);
 });

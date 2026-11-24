@@ -64,4 +64,14 @@ class AdminManagementController extends Controller
             return redirect()->back();
         }
     }
+
+    public function delete(PageRequest $request, $id = null)
+    {
+        $user = Admin::findOrFail($id);
+        $user->delete();
+
+        session()->flash('notification-status', "success");
+        session()->flash('notification-msg', "User account successfully deleted.");
+        return redirect()->route('backoffice.admin-management.index');
+    }
 }

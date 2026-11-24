@@ -64,4 +64,14 @@ class UserManagementController extends Controller
             return redirect()->back();
         }
     }
+
+    public function delete(PageRequest $request, $id = null)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        session()->flash('notification-status', "success");
+        session()->flash('notification-msg', "User account successfully deleted.");
+        return redirect()->route('backoffice.user-management.index');
+    }
 }
