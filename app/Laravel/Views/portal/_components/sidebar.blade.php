@@ -26,7 +26,7 @@
 
                 {{-- PROFILE --}}
                 <li class="nav-item">
-                    <a href="{{ route('portal.profile.index') }}"
+                    <a href="{{ route('portal.profile.show') }}"
                         class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                         {{ request()->routeIs('portal.profile.*') ? 'active' : '' }}">
                         <i class="bi bi-person-circle fs-5"></i>
@@ -42,7 +42,7 @@
 
                     <ul class="nav flex-column gap-1">
                         <li>
-                            <a href="{{ route('portal.home') }}"
+                            <a href="{{ route('portal.cms.home') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.home') ? 'active' : '' }}">
                                 <i class="bi bi-house-door fs-5"></i>
@@ -51,7 +51,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('portal.about') }}"
+                            <a href="{{ route('portal.cms.about') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.about') ? 'active' : '' }}">
                                 <i class="bi bi-info-circle fs-5"></i>
@@ -60,7 +60,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('portal.contact') }}"
+                            <a href="{{ route('portal.cms.contact') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.contact') ? 'active' : '' }}">
                                 <i class="bi bi-envelope fs-5"></i>
@@ -78,7 +78,7 @@
 
                     <ul class="nav flex-column gap-1">
                         <li>
-                            <a href="{{ route('portal.articles') }}"
+                            <a href="{{ route('portal.cms.article') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.articles*') ? 'active' : '' }}">
                                 <i class="bi bi-newspaper fs-5"></i>
@@ -137,7 +137,7 @@
 
                 {{-- PROFILE --}}
                 <li>
-                    <a href="{{ route('portal.profile.index') }}"
+                    <a href="{{ route('portal.profile.show') }}"
                         class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                         {{ request()->routeIs('portal.profile.*') ? 'active' : '' }}"
                         data-bs-dismiss="offcanvas">
@@ -154,7 +154,7 @@
 
                     <ul class="nav flex-column gap-1">
                         <li>
-                            <a href="{{ route('portal.home') }}"
+                            <a href="{{ route('portal.cms.home') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.home') ? 'active' : '' }}"
                                 data-bs-dismiss="offcanvas">
@@ -164,7 +164,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('portal.about') }}"
+                            <a href="{{ route('portal.cms.about') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.about') ? 'active' : '' }}"
                                 data-bs-dismiss="offcanvas">
@@ -174,7 +174,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('portal.contact') }}"
+                            <a href="{{ route('portal.cms.contact') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.contact') ? 'active' : '' }}"
                                 data-bs-dismiss="offcanvas">
@@ -193,7 +193,7 @@
 
                     <ul class="nav flex-column gap-1">
                         <li>
-                            <a href="{{ route('portal.articles') }}"
+                            <a href="{{ route('portal.cms.article') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.articles*') ? 'active' : '' }}"
                                 data-bs-dismiss="offcanvas">

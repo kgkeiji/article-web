@@ -36,7 +36,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if (auth('user')->check()) {
-            return new RedirectResponse(route('portal.home'));
+            return new RedirectResponse(route('portal.profile.show'));
         }
 
         return $next($request);
