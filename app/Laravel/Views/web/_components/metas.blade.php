@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ $title ?? 'Default Title' }}</title>
+<title>{{ $page_title ?? 'Default Title' }}</title>
 @if (request()->routeIs('web.home'))
     <title>{{ 'Home' }}</title>
 @endif

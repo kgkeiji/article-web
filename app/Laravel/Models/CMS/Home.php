@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Laravel\Models;
+namespace App\Laravel\Models\CMS;
 
 use Illuminate\Database\Eloquent\Model;
 
 
-class CMS_Home extends Model
+class Home extends Model
 {
     /**
      * Enable soft delete in table

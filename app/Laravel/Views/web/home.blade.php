@@ -89,7 +89,7 @@
             @forelse ($articles as $article)
                 <div class="col">
                     <div class="card h-100 d-flex flex-column justify-content-center align-items-center py-5">
-                        <img src="{{ asset('assets/images/logo-dark-bg.png') }}" class="card-img-top w-50 h-auto opacity-75"
+                        <img src="{{ asset('assets/images/logo-dark.png') }}" class="card-img-top w-50 h-auto opacity-75"
                             alt="Modern Design">
                         <div class="card-body">
                             <h5 class="card-title">{{ $article->title }}</h5>

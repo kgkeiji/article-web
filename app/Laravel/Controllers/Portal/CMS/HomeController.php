@@ -3,7 +3,7 @@
 namespace App\Laravel\Controllers\Portal\CMS;
 
 use App\Http\Controllers\Controller;
-use App\Laravel\Models\CMS_Home;
+use App\Laravel\Models\CMS\Home;
 use App\Laravel\Requests\PageRequest;
 use DB;
 
@@ -23,7 +23,7 @@ class HomeController extends Controller
         DB::beginTransaction();
 
         try {
-            $cms = new CMS_Home();
+            $cms = new Home();
             $cms->title = ($request->input('title'));
             $cms->content = ($request->input('answer'));
             $cms->save();
@@ -31,8 +31,8 @@ class HomeController extends Controller
             DB::commit();
 
             session()->flash('notification-status', "success");
-            session()->flash('notification-msg', "Successfully registered.");
-            return redirect()->route('portal.profile.show');
+            session()->flash('notification-msg', "Successfully added article.");
+            return redirect()->route('portal.cms.home');
         } catch (\Exception $e) {
             DB::rollback();
             session()->flash('notification-status', "failed");
