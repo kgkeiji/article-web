@@ -2,6 +2,7 @@
 
 namespace App\Laravel\Controllers\Web;
 
+use App\Laravel\Models\CMS_Home;
 use App\Laravel\Requests\PageRequest;
 
 class MainController extends Controller
@@ -11,6 +12,7 @@ class MainController extends Controller
     public function index(PageRequest $request)
     {
         $this->data['page-title'] = 'Home Page';
+        $this->data['articles'] = CMS_Home::get();
         return view('web.home', $this->data);
     }
 

@@ -3,12 +3,10 @@
 namespace App\Laravel\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class CMS_Home extends Model
 {
-    use SoftDeletes;
     /**
      * Enable soft delete in table
      * @var boolean

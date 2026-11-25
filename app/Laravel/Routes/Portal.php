@@ -14,6 +14,8 @@ Route::group([
     include_once app_path("Laravel/Routes/Portal/Auth.php");
 
     Route::group(['middleware' => "portal.auth"], function () {
+        Route::get('/', ['as' => 'home', 'uses' => 'CMS\HomeController@index']);
+
         include_once app_path("Laravel/Routes/Portal/ProfileManagement.php");
         include_once app_path("Laravel/Routes/Portal/CMS.php");
 
