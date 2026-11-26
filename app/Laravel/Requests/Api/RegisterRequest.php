@@ -12,11 +12,12 @@ class RegisterRequest extends ApiRequestManager
      *
      * @return array
      */
-    public function rules(){
+    public function rules()
+    {
 
         return [
-            'email' => "required|email:rfc,strict,dns,filter|unique_email:0",
             'name' => "required|between:2,100|regex:/^[A-Za-z0-9 \s]+$/",
+            'email' => "required|email:rfc,strict,dns,filter|unique_email:0",
             'password' => [
                 'required',
                 'between:6,20',
@@ -24,10 +25,10 @@ class RegisterRequest extends ApiRequestManager
                 'confirmed'
             ],
         ];
-
     }
 
-    public function messages(){
+    public function messages()
+    {
         return [
             'required' => "Field is required.",
             'regex' => "Invalid data.",

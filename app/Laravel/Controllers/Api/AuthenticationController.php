@@ -22,7 +22,7 @@ class AuthenticationController extends Controller
 {
     use ResponseGenerator;
 
-    protected $data, $guard,$response, $response_code, $transformer;
+    protected $data, $guard, $response, $response_code, $transformer;
 
     public function __construct()
     {
@@ -37,14 +37,15 @@ class AuthenticationController extends Controller
         $this->response_code = 400;
     }
 
-    public function register(RegisterRequest $request,$format = NULL){
+    public function register(RegisterRequest $request, $format = NULL)
+    {
 
         DB::beginTransaction();
-        try{
+        try {
 
             $user = new User();
-            $user->email = strtolower($request->input('email'));
             $user->name = strtoupper($request->input('name'));
+            $user->email = strtolower($request->input('email'));
             $user->password = bcrypt($request->input('password'));
             $user->save();
 
@@ -54,7 +55,7 @@ class AuthenticationController extends Controller
             $this->response['status_code'] = "REGISTERED";
             $this->response['msg'] = "Successfully registered.";
             $this->response_code = 201;
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollback();
             $this->response['status'] = FALSE;
             $this->response['status_code'] = "SERVER_ERROR";
@@ -66,7 +67,8 @@ class AuthenticationController extends Controller
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function login(PageRequest $request){
+    public function login(PageRequest $request)
+    {
         $password  = $request->input('password');
         $value =  strtolower($request->input('email'));
 
@@ -75,7 +77,7 @@ class AuthenticationController extends Controller
 
         $password  = $request->input('password');
 
-        if(!$token = auth($this->guard)->attempt([$field => $value,'password' => $password])){
+        if (!$token = auth($this->guard)->attempt([$field => $value, 'password' => $password])) {
             $this->response['status'] = FALSE;
             $this->response['status_code'] = "UNAUTHORIZED";
             $this->response['msg'] = "Invalid account credentials.";
@@ -90,7 +92,7 @@ class AuthenticationController extends Controller
         $this->response['msg'] = "Hi {$user->name}!";
         $this->response['token'] = $token;
         $this->response['token_type'] = "Bearer";
-        $this->response['data'] = $this->transformer->transform($user, new UserTransformer,'item');
+        $this->response['data'] = $this->transformer->transform($user, new UserTransformer, 'item');
 
         $this->response_code = 200;
         goto callback;
@@ -98,9 +100,9 @@ class AuthenticationController extends Controller
         $this->response['status'] = FALSE;
         $this->response['msg'] = "Invalid account credentials";
 
-        if($login_type == "phone"){
+        if ($login_type == "phone") {
             $this->response['status_code'] = "INVALID_PHONE_NUMBER";
-        }else{
+        } else {
             $this->response['status_code'] = "INVALID_EMAIL";
         }
         $this->response_code = 412;
@@ -109,10 +111,11 @@ class AuthenticationController extends Controller
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function check_login(PageRequest $request){
+    public function check_login(PageRequest $request)
+    {
         $user = auth($this->guard)->user();
 
-        if(!$user){
+        if (!$user) {
             $this->response['status'] = FALSE;
             $this->response['status_code'] = "UNAUTHORIZED";
             $this->response['msg'] = "Invalid/Expired token. Do refresh token.";
@@ -123,14 +126,15 @@ class AuthenticationController extends Controller
         $this->response['status'] = TRUE;
         $this->response['status_code'] = "LOGIN_SUCCESS";
         $this->response['msg'] = "Welcome {$user->name}!";
-        $this->response['data'] = $this->transformer->transform($user,new UserTransformer,'item');
+        $this->response['data'] = $this->transformer->transform($user, new UserTransformer, 'item');
 
         $this->response_code = 200;
         callback:
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function refresh_token(PageRequest $request){
+    public function refresh_token(PageRequest $request)
+    {
 
         $old_token = $request->bearerToken();
 
@@ -150,10 +154,11 @@ class AuthenticationController extends Controller
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function logout(PageRequest $request){
+    public function logout(PageRequest $request)
+    {
 
         $user = auth($this->guard)->user();
-        if($user){
+        if ($user) {
             auth($this->guard)->logout(true);
 
             $this->response['status'] = TRUE;
@@ -171,6 +176,5 @@ class AuthenticationController extends Controller
 
         callback:
         return response()->json($this->api_response($this->response), $this->response_code);
-
     }
 }
