@@ -19,7 +19,7 @@ Route::group([
         Route::group(['prefix' => "profile", 'as' => 'profile.'], function () {
             Route::post('info', ['as' => 'info', 'uses' => 'ProfileController@show']);
         });
+        // article crud
+        include_once app_path("Laravel/Routes/Api/Article.php");
     });
-    // article crud
-    include_once app_path("Laravel/Routes/Api/Article.php");
 });

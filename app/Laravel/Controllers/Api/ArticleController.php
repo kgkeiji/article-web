@@ -34,10 +34,11 @@ class ArticleController extends Controller
 
     public function index(PageRequest  $request)
     {
+        $auth = $request->user($this->guard);
         $per_page = $request->input('per_page', 10);
-        // $auth = $request->user($this->guard);
 
-        $articles = Article::orderBy('updated_at', "DESC")
+        $articles = Article::where("user_id", $auth->id)
+            ->orderBy('updated_at', "DESC")
             ->paginate($per_page);
 
         $this->response['status'] = TRUE;
@@ -53,7 +54,12 @@ class ArticleController extends Controller
 
     public function show(PageRequest $request, $id = null)
     {
-        $article = Article::find($id);
+        // $article = Article::find($id);
+        // $article = $request->get('article_data');
+        $auth = $request->user($this->guard);
+        $article = Article::where("user_id", $auth->id)
+            ->where("id", $id)
+            ->first();
 
         if (!$article) {
             $this->response['status'] = FALSE;
@@ -64,7 +70,6 @@ class ArticleController extends Controller
             goto callback;
         }
 
-        // $article = $request->get('article_data');
 
         $this->response['status'] = TRUE;
         $this->response['status_code'] = "ARTICLE_DETAIL";
@@ -78,13 +83,13 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        // $auth = $request->user($this->guard);
+        $auth = $request->user($this->guard);
 
         DB::beginTransaction();
         try {
 
             $article = new Article;
-            // $article->user_id = $auth->id;
+            $article->user_id = $auth->id;
             $article->name = $request->input('name');
             $article->description = $request->input('description');
 
@@ -122,9 +127,13 @@ class ArticleController extends Controller
 
     public function update(ArticleRequest $request, $id = null)
     {
-        // $auth = $request->user($this->guard);
+        $auth = $request->user($this->guard);
         // $article = $request->get('article_data');
-        $article = Article::find($id);
+        // $article = Article::find($id);
+
+        $article = Article::where("user_id", $auth->id)
+            ->where("id", $id)
+            ->first();
 
         if (!$article) {
             $this->response['status'] = FALSE;
@@ -138,7 +147,7 @@ class ArticleController extends Controller
         DB::beginTransaction();
         try {
 
-            // $article->user_id = $auth->id;
+            $article->user_id = $auth->id;
             $article->name = $request->input('name');
             $article->description = $request->input('description');
 
@@ -178,7 +187,11 @@ class ArticleController extends Controller
     public function destroy(PageRequest $request, $id = null)
     {
         // $article = $request->get('article_data');
-        $article = Article::find($id);
+        // $article = Article::find($id);
+        $auth = $request->user($this->guard);
+        $article = Article::where("user_id", $auth->id)
+            ->where("id", $id)
+            ->first();
 
         if (!$article) {
             $this->response['status'] = FALSE;
