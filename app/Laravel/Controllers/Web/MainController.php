@@ -2,6 +2,7 @@
 
 namespace App\Laravel\Controllers\Web;
 
+use App\Laravel\Models\CMS\About;
 use App\Laravel\Models\CMS\Home;
 use App\Laravel\Requests\PageRequest;
 
@@ -19,6 +20,8 @@ class MainController extends Controller
     public function about(PageRequest $request)
     {
         $this->data['page_title'] = 'About Page';
+        $this->data['aboutSections'] = About::all()->keyBy('section');
+
         return view('web.about', $this->data);
     }
 

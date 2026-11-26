@@ -20,6 +20,7 @@ return new class extends Migration
         });
         Schema::create('cms_about', function (Blueprint $table) {
             $table->id();
+            $table->string('section')->unique();
             $table->string('title')->nullable();
             $table->longText('content')->nullable();
             $table->timestamps();
