@@ -25,7 +25,7 @@ class Home extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['section', 'title', 'content'];
 
     /**
      * The attributes excluded from the model's JSON form.

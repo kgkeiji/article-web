@@ -12,7 +12,7 @@ class MainController extends Controller
     public function index(PageRequest $request)
     {
         $this->data['page_title'] = 'Home Page';
-        $this->data['articles'] = Home::get();
+        $this->data['homeSections'] = Home::all()->keyBy('section');
         return view('web.home', $this->data);
     }
 

@@ -15,18 +15,26 @@ class HomeController extends Controller
     public function index(PageRequest $request)
     {
         $this->data['page-title'] = 'Portal Home Page';
+        $this->data['homeSections'] = Home::all()->keyBy('section');
         return view('portal.cms.home', $this->data);
     }
 
     public function store(PageRequest $request)
     {
+        $sections = ['content_creation', 'fresh_experience', 'great_community', 'modern_design'];
+
         DB::beginTransaction();
 
         try {
-            $cms = new Home();
-            $cms->title = ($request->input('title'));
-            $cms->content = ($request->input('answer'));
-            $cms->save();
+            foreach ($sections as $section) {
+                Home::updateOrCreate(
+                    ['section' => $section],
+                    [
+                        'title' => $request->input('title.' . $section),
+                        'content' => $request->input('answer.' . $section),
+                    ]
+                );
+            }
 
             DB::commit();
 
