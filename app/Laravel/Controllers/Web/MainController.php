@@ -11,8 +11,10 @@ class MainController extends Controller
 {
     public function __construct() {}
 
+
     public function index(PageRequest $request)
     {
+        $this->data['record'] = auth('user')->user();
         $this->data['page_title'] = 'Home Page';
         $this->data['homeSections'] = Home::all()->keyBy('section');
         return view('web.home', $this->data);
