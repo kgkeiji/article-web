@@ -12,5 +12,8 @@ Route::group(['prefix' => 'cms', 'as' => 'cms.'], function () {
     Route::get('contact', ['as' => 'contact', 'uses' => 'CMS\ContactController@index']);;
     Route::post('contact', ['as' => 'contact.store', 'uses' => 'CMS\ContactController@store']);
 
-    Route::get('article', ['as' => 'article', 'uses' => 'CMS\ArticleController@index']);;
+    Route::get('articles', ['as' => 'articles', 'uses' => 'CMS\ArticlesController@index']);
+    Route::post('articles', ['as' => 'articles.store', 'uses' => 'CMS\ArticlesController@store']);
+    Route::post('articles/{id}/update', ['as' => 'articles.update', 'uses' => 'CMS\ArticlesController@update']);
+    Route::post('articles/{id}/delete', ['as' => 'articles.delete', 'uses' => 'CMS\ArticlesController@delete']);
 });

@@ -5,6 +5,7 @@ namespace App\Laravel\Controllers\Web;
 use App\Laravel\Models\CMS\About;
 use App\Laravel\Models\CMS\Contact;
 use App\Laravel\Models\CMS\Home;
+use App\Laravel\Models\Article;
 use App\Laravel\Requests\PageRequest;
 
 class MainController extends Controller
@@ -42,13 +43,24 @@ class MainController extends Controller
     {
         $this->data['record'] = auth('user')->user();
         $this->data['page_title'] = 'Articles Page';
+        $this->data['articles'] = auth('user')->check()
+            ? Article::where('user_id', auth('user')->id())->latest()->get()
+            : collect();
+
         return view('web.articles', $this->data);
     }
 
-    public function article(PageRequest $request)
+    public function article(PageRequest $request, $id = null)
     {
         $this->data['record'] = auth('user')->user();
         $this->data['page_title'] = 'Article Page';
+        $this->data['article'] = null;
+
+        if ($id !== null) {
+            abort_unless(auth('user')->check(), 404);
+            $this->data['article'] = Article::where('user_id', auth('user')->id())->findOrFail($id);
+        }
+
         return view('web.article', $this->data);
     }
 }

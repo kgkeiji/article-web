@@ -78,7 +78,7 @@
 
                     <ul class="nav flex-column gap-1">
                         <li>
-                            <a href="{{ route('portal.cms.article') }}"
+                            <a href="{{ route('portal.cms.articles') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.articles*') ? 'active' : '' }}">
                                 <i class="bi bi-newspaper fs-5"></i>
@@ -193,7 +193,7 @@
 
                     <ul class="nav flex-column gap-1">
                         <li>
-                            <a href="{{ route('portal.cms.article') }}"
+                            <a href="{{ route('portal.cms.articles') }}"
                                 class="nav-link d-flex align-items-center gap-3 rounded-3 px-3 py-2
                                 {{ request()->routeIs('portal.articles*') ? 'active' : '' }}"
                                 data-bs-dismiss="offcanvas">
