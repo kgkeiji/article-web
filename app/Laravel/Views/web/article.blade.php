@@ -5,8 +5,8 @@
         <div class="container py-5 row mx-auto">
             <div class="col-md-6 mb-4">
                 @if ($article && $article->filename && $article->directory)
-                    <img src="{{ rtrim($article->directory, '/') . '/thumbnails/' . $article->filename }}"
-                        class="img-fluid rounded mb-4" alt="{{ $article->name }}">
+                    <img src="{{ rtrim($article->directory, '/') . '/' . $article->filename }}" class="img-fluid rounded mb-4"
+                        alt="{{ $article->name }}">
                 @else
                     <img src="{{ asset('assets/images/diorama.png') }}" class="img-fluid rounded mb-4"
                         alt="A creative digital landscape">
@@ -18,7 +18,7 @@
 
                 <p class="lead text-primary mb-4">
                     @if ($article)
-                        {{ \Illuminate\Support\Str::limit(strip_tags($article->description), 180) }}
+                        {{ Str::limit(strip_tags($article->description), 180) }}
                     @else
                         Discover how imagination, creativity, and thoughtful design bring extraordinary digital worlds to
                         life.
@@ -103,12 +103,6 @@
         p {
             text-align: justify;
             line-height: 1.8;
-        }
-
-        img {
-            aspect-ratio: 16/9;
-            /* object-fit: cover; */
-            width: 100%;
         }
 
         .article-content {

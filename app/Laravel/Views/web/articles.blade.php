@@ -13,10 +13,10 @@
                     <a href="{{ route('web.article', $article->id) }}"
                         class="list-group-item list-group-item-action d-flex w-100 shadow-sm">
                         <div class="article-list w-100 d-flex flex-column flex-md-row">
+                            {{-- start of article image --}}
                             @if ($article->filename && $article->directory)
                                 <img src="{{ rtrim($article->directory, '/') . '/thumbnails/' . $article->filename }}"
-                                    alt="{{ $article->name }}" class="mx-auto me-md-3 img-fluid"
-                                    style="object-fit: cover;">
+                                    alt="{{ $article->name }}" class="mx-auto me-md-3 img-fluid" style="object-fit: cover;">
                             @else
                                 <img src="{{ asset('assets/images/diorama.png') }}" alt="Creative digital landscape"
                                     class="mx-auto me-md-3 img-fluid" style="object-fit: cover;">
@@ -27,7 +27,8 @@
                                     <h5 class="mb-1">{{ $article->name }}</h5>
                                     <small class="text-body-secondary">{{ $article->created_at->diffForHumans() }}</small>
                                 </div>
-                                <p class="mb-1">{{ \Illuminate\Support\Str::limit(strip_tags($article->description), 180) }}</p>
+                                <p class="mb-1">
+                                    {{ Str::limit(strip_tags($article->description), 180) }}</p>
                             </div>
                         </div>
                     </a>

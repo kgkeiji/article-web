@@ -4,6 +4,7 @@ namespace App\Laravel\Controllers\Portal\CMS;
 
 use App\Http\Controllers\Controller;
 use App\Laravel\Models\Article;
+use App\Laravel\Requests\Portal\ArticleRequest;
 use App\Laravel\Requests\PageRequest;
 use App\Laravel\Services\ImageUploader;
 
@@ -21,9 +22,8 @@ class ArticlesController extends Controller
         return view('portal.cms.articles', $this->data);
     }
 
-    public function store(PageRequest $request)
+    public function store(ArticleRequest $request)
     {
-        $this->validateArticle($request);
 
         $article = new Article();
         $article->user_id = $request->user('user')->id;
@@ -42,9 +42,8 @@ class ArticlesController extends Controller
         return redirect()->route('portal.cms.articles');
     }
 
-    public function update(PageRequest $request, $id = null)
+    public function update(ArticleRequest $request, $id = null)
     {
-        $this->validateArticle($request);
 
         $article = Article::where('user_id', $request->user('user')->id)->findOrFail($id);
         $article->name = $request->input('name');
@@ -73,30 +72,30 @@ class ArticlesController extends Controller
         return redirect()->route('portal.cms.articles');
     }
 
-    private function validateArticle(PageRequest $request): void
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:30'],
-            'description' => [
-                'required',
-                'string',
-                function ($attribute, $value, $fail) {
-                    if (!is_string($value)) {
-                        $fail('Article content is required.');
-                        return;
-                    }
+    // private function validateArticle(PageRequest $request): void
+    // {
+    //     $request->validate([
+    //         'name' => ['required', 'string', 'max:30'],
+    //         'description' => [
+    //             'required',
+    //             'string',
+    //             function ($attribute, $value, $fail) {
+    //                 if (!is_string($value)) {
+    //                     $fail('Article content is required.');
+    //                     return;
+    //                 }
 
-                    $content = html_entity_decode(strip_tags($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
-                    if (trim($content) === '') {
-                        $fail('Article content is required.');
-                    }
-                },
-            ],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:5000'],
-        ]);
-    }
+    //                 $content = html_entity_decode(strip_tags($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    //                 if (trim($content) === '') {
+    //                     $fail('Article content is required.');
+    //                 }
+    //             },
+    //         ],
+    //         'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:5000'],
+    //     ]);
+    // }
 
-    private function setArticleImage(Article $article, PageRequest $request): void
+    private function setArticleImage(Article $article, ArticleRequest $request): void
     {
         $image = ImageUploader::uploadAutoResize($request->file('image'), 'uploads/articles/images');
         $article->path = $image['path'];

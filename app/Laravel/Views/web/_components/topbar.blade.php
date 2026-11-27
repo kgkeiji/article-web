@@ -30,11 +30,38 @@
             </ul>
             <div class="d-flex align-items-center gap-3">
                 @auth('user')
-                    <a href="{{ route('portal.profile.show') }}" class="text-decoration-none">
-                        <span class="text-primary text-nowrap">
-                            {{ $record->name }}
-                        </span>
-                    </a>
+                    <div class="dropdown">
+
+                        {{-- User Dropdown Toggle --}}
+                        <button class="btn btn-light bg-transparent p-0 border-0 d-flex align-items-center gap-2"
+                            type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <span class="d-none d-md-inline text-secondary">
+                                @auth('user')
+                                    {{ auth('user')->user()->name }}
+                                @endauth
+
+                            </span>
+
+                            <i class="bi bi-chevron-down text-secondary small"></i>
+                            <i class="bi bi-person-circle text-primary fs-2"></i>
+                        </button>
+
+                        {{-- Dropdown Menu --}}
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2" aria-labelledby="navbarDropdown"
+                            style="min-width: 200px;">
+
+                            {{-- Profile --}}
+                            <li>
+                                <a href="{{ route('portal.profile.show') }}" id="logoutBtn"
+                                    class="dropdown-item text-primary rounded d-flex align-items-center gap-2 py-2">
+
+                                    Profile
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
                 @else
                     <a href="{{ route('portal.auth.register') }}" class="btn btn-outline-primary">Sign Up</a>
                 @endauth

@@ -19,28 +19,28 @@ class HomeController extends Controller
                 'label' => 'Content Creation',
                 'description' => 'Manage content that highlights your creative capabilities.',
                 'title' => 'Content Creation',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'content' => 'Create, edit, and publish articles effortlessly with an organized content management system.',
                 'icon' => 'bi-pencil-square',
             ],
             'fresh_experience' => [
                 'label' => 'Fresh Experience',
                 'description' => 'Showcase the fresh and engaging experiences you offer.',
                 'title' => 'Fresh Experience',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'content' => 'Keep your website engaging with regularly updated articles and fresh content.',
                 'icon' => 'bi-stars',
             ],
             'great_community' => [
                 'label' => 'Great Community',
                 'description' => 'Highlight your community and audience engagement.',
                 'title' => 'Great Community',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'content' => 'Build stronger connections with your audience through informative and engaging articles.',
                 'icon' => 'bi-people',
             ],
             'modern_design' => [
                 'label' => 'Modern Design',
                 'description' => 'Present your modern design approach and features.',
                 'title' => 'Modern Design',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'content' => 'Enjoy a clean, user-friendly, and responsive interface designed for seamless content management',
                 'icon' => 'bi-palette',
             ],
         ];
@@ -70,7 +70,7 @@ class HomeController extends Controller
             DB::commit();
 
             session()->flash('notification-status', "success");
-            session()->flash('notification-msg', "Successfully added article.");
+            session()->flash('notification-msg', "Successfully updated section content.");
             return redirect()->route('portal.cms.home');
         } catch (\Exception $e) {
             DB::rollback();

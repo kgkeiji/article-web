@@ -51,8 +51,10 @@
                     <img src="{{ 'assets/images/1 content creation.png' }}" class="card-img-top w-50 h-auto opacity-75"
                         alt="Content Creation">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $homeSections->get('content_creation')->title ?? 'Content Creation' }}</h5>
-                        <p class="card-text">{!! $homeSections->get('content_creation')->content ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' !!}</p>
+                        <h5 class="card-title">{{ $homeSections->get('content_creation')->title ?? 'Content Creation' }}
+                        </h5>
+                        <p class="card-text">{!! $homeSections->get('content_creation')->content ??
+                            'Create, edit, and publish articles effortlessly with an organized content management system.' !!}</p>
                     </div>
                 </div>
             </div>
@@ -61,8 +63,10 @@
                     <img src="{{ 'assets/images/2 fresh experience.png' }}" class="card-img-top w-50 h-auto opacity-75"
                         alt="Fresh Experience">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $homeSections->get('fresh_experience')->title ?? 'Fresh Experience' }}</h5>
-                        <p class="card-text">{!! $homeSections->get('fresh_experience')->content ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' !!}</p>
+                        <h5 class="card-title">{{ $homeSections->get('fresh_experience')->title ?? 'Fresh Experience' }}
+                        </h5>
+                        <p class="card-text">{!! $homeSections->get('fresh_experience')->content ??
+                            'Keep your website engaging with regularly updated articles and fresh content.' !!}</p>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,8 @@
                         alt="Great Community">
                     <div class="card-body">
                         <h5 class="card-title">{{ $homeSections->get('great_community')->title ?? 'Great Community' }}</h5>
-                        <p class="card-text">{!! $homeSections->get('great_community')->content ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' !!}</p>
+                        <p class="card-text">{!! $homeSections->get('great_community')->content ??
+                            'Build stronger connections with your audience through informative and engaging articles.' !!}</p>
                     </div>
                 </div>
             </div>
@@ -82,7 +87,8 @@
                         alt="Modern Design">
                     <div class="card-body">
                         <h5 class="card-title">{{ $homeSections->get('modern_design')->title ?? 'Modern Design' }}</h5>
-                        <p class="card-text">{!! $homeSections->get('modern_design')->content ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' !!}</p>
+                        <p class="card-text">{!! $homeSections->get('modern_design')->content ??
+                            'Enjoy a clean, user-friendly, and responsive interface designed for seamless content management' !!}</p>
                     </div>
                 </div>
             </div>

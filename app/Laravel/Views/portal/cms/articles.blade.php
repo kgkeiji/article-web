@@ -24,7 +24,7 @@
                 <div class="card-body p-4">
                     <div class="mb-3">
                         <label for="new-name" class="form-label fw-semibold">Title</label>
-                        <input id="new-name" name="name" value="{{ old('name') }}" required maxlength="30"
+                        <input id="new-name" name="name" value="{{ old('name') }}"
                             class="form-control @error('name') is-invalid @enderror">
                         @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -66,26 +66,28 @@
                         <div class="d-flex flex-column flex-md-row gap-4">
                             @if ($article->filename && $article->directory)
                                 <img src="{{ rtrim($article->directory, '/') . '/thumbnails/' . $article->filename }}"
-                                    alt="{{ $article->name }}" class="rounded object-fit-cover" width="160" height="120">
+                                    alt="{{ $article->name }}" class="rounded object-fit-cover" width="160"
+                                    height="120">
                             @endif
                             <div class="flex-grow-1">
                                 <div class="mb-3">
                                     <label for="name-{{ $article->id }}" class="form-label fw-semibold">Title</label>
                                     <input id="name-{{ $article->id }}" name="name" value="{{ $article->name }}"
-                                        required maxlength="30" class="form-control">
+                                        class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="description-{{ $article->id }}" class="form-label fw-semibold">Article content</label>
-                                    <textarea id="description-{{ $article->id }}" name="description" rows="5"
-                                        class="form-control article-editor">{{ $article->description }}</textarea>
+                                    <label for="description-{{ $article->id }}" class="form-label fw-semibold">Article
+                                        content</label>
+                                    <textarea id="description-{{ $article->id }}" name="description" rows="5" class="form-control article-editor">{{ $article->description }}</textarea>
                                     <div id="description-{{ $article->id }}-error" class="invalid-feedback">
                                         Article content is required.
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="image-{{ $article->id }}" class="form-label fw-semibold">Replace image (optional)</label>
-                                    <input id="image-{{ $article->id }}" type="file" name="image" accept=".jpg,.jpeg,.png"
-                                        class="form-control">
+                                    <label for="image-{{ $article->id }}" class="form-label fw-semibold">Replace image
+                                        (optional)</label>
+                                    <input id="image-{{ $article->id }}" type="file" name="image"
+                                        accept=".jpg,.jpeg,.png" class="form-control">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
                             </div>
@@ -122,11 +124,29 @@
         ];
 
         const articleEditorHeading = {
-            options: [
-                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
+            options: [{
+                    model: 'paragraph',
+                    title: 'Paragraph',
+                    class: 'ck-heading_paragraph'
+                },
+                {
+                    model: 'heading1',
+                    view: 'h1',
+                    title: 'Heading 1',
+                    class: 'ck-heading_heading1'
+                },
+                {
+                    model: 'heading2',
+                    view: 'h2',
+                    title: 'Heading 2',
+                    class: 'ck-heading_heading2'
+                },
+                {
+                    model: 'heading3',
+                    view: 'h3',
+                    title: 'Heading 3',
+                    class: 'ck-heading_heading3'
+                }
             ]
         };
 
