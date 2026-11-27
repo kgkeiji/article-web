@@ -28,7 +28,17 @@
                         href="{{ route('web.contact') }}">Contact</a>
                 </li>
             </ul>
-            <a class="btn btn-outline-primary" href="{{ route('portal.auth.register') }}">Sign Up</a>
+            <div class="d-flex align-items-center gap-3">
+                @auth('user')
+                    <a href="{{ route('portal.profile.show') }}" class="text-decoration-none">
+                        <span class="text-primary text-nowrap">
+                            {{ $record->name }}
+                        </span>
+                    </a>
+                @else
+                    <a href="{{ route('portal.auth.register') }}" class="btn btn-outline-primary">Sign Up</a>
+                @endauth
+            </div>
         </div>
     </div>
 </nav>
