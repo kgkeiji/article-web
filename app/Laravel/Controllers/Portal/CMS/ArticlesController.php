@@ -42,7 +42,7 @@ class ArticlesController extends Controller
         return redirect()->route('portal.cms.articles');
     }
 
-    public function update(PageRequest $request, $id)
+    public function update(PageRequest $request, $id = null)
     {
         $this->validateArticle($request);
 
@@ -62,7 +62,7 @@ class ArticlesController extends Controller
         return redirect()->route('portal.cms.articles');
     }
 
-    public function delete(PageRequest $request, $id)
+    public function delete(PageRequest $request, $id = null)
     {
         $article = Article::where('user_id', $request->user('user')->id)->findOrFail($id);
         $article->delete();

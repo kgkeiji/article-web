@@ -20,7 +20,8 @@
                     @if ($article)
                         {{ \Illuminate\Support\Str::limit(strip_tags($article->description), 180) }}
                     @else
-                        Discover how imagination, creativity, and thoughtful design bring extraordinary digital worlds to life.
+                        Discover how imagination, creativity, and thoughtful design bring extraordinary digital worlds to
+                        life.
                     @endif
                 </p>
             </div>
@@ -30,32 +31,40 @@
                     <div class="article-content">{!! $article->description !!}</div>
                 @else
                     <p>
-                        Creativity has always been an essential part of how we express ourselves and understand the world around
-                        us. From traditional forms of art to modern digital creations, people continue to find new ways to turn
+                        Creativity has always been an essential part of how we express ourselves and understand the world
+                        around
+                        us. From traditional forms of art to modern digital creations, people continue to find new ways to
+                        turn
                         their ideas into something meaningful.
                     </p>
 
                     <p>
-                        With the advancement of technology, creating immersive digital environments has become more accessible
+                        With the advancement of technology, creating immersive digital environments has become more
+                        accessible
                         than ever. Digital tools allow creators to experiment with different concepts, explore unique
-                        perspectives, and bring their imagination into reality. What once existed only as an idea can now become
+                        perspectives, and bring their imagination into reality. What once existed only as an idea can now
+                        become
                         an interactive experience that others can explore and appreciate.
                     </p>
 
                     <p>
                         Building a creative world takes more than simply putting things together. It requires planning,
-                        patience, and attention to detail. Every element contributes to the overall experience, whether it is
+                        patience, and attention to detail. Every element contributes to the overall experience, whether it
+                        is
                         the environment, the atmosphere, or the small details that make a creation feel alive.
                     </p>
 
                     <p>
-                        More importantly, creativity is not limited by experience or resources. Everyone starts somewhere, and
-                        every project presents an opportunity to learn something new. Sometimes, the simplest ideas can lead to
+                        More importantly, creativity is not limited by experience or resources. Everyone starts somewhere,
+                        and
+                        every project presents an opportunity to learn something new. Sometimes, the simplest ideas can lead
+                        to
                         the most remarkable creations.
                     </p>
 
                     <p>
-                        As technology continues to evolve, the possibilities for digital creativity will only continue to grow.
+                        As technology continues to evolve, the possibilities for digital creativity will only continue to
+                        grow.
                         The best creations are those that reflect the imagination of their creators and inspire others to
                         explore their own ideas.
                     </p>
@@ -94,6 +103,12 @@
         p {
             text-align: justify;
             line-height: 1.8;
+        }
+
+        img {
+            aspect-ratio: 16/9;
+            /* object-fit: cover; */
+            width: 100%;
         }
 
         .article-content {

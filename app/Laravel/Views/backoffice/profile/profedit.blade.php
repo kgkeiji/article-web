@@ -57,7 +57,7 @@
                             <div class="card-footer bg-white border-top p-3 p-md-4">
                                 <div class="d-flex flex-column flex-sm-row justify-content-end gap-2">
 
-                                    <a href="{{ route('backoffice.profile.index') }}" class="btn btn-light border px-4">
+                                    <a href="{{ route('backoffice.profile.show') }}" class="btn btn-light border px-4">
                                         Cancel
                                     </a>
                                     <button type="submit" class="submit-btn btn btn-primary px-4">

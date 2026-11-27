@@ -50,7 +50,7 @@ class ProfileController extends Controller
 
             session()->flash('notification-status', "success");
             session()->flash('notification-msg', "Profile successfully updated.");
-            return redirect()->route('backoffice.profile.index');
+            return redirect()->route('backoffice.profile.show');
         } catch (\Exception $e) {
             DB::rollback();
 
