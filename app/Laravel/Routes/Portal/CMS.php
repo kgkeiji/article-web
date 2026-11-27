@@ -10,6 +10,7 @@ Route::group(['prefix' => 'cms', 'as' => 'cms.'], function () {
     Route::post('about', ['as' => 'about.store', 'uses' => 'CMS\AboutController@store']);
 
     Route::get('contact', ['as' => 'contact', 'uses' => 'CMS\ContactController@index']);;
+    Route::post('contact', ['as' => 'contact.store', 'uses' => 'CMS\ContactController@store']);
 
     Route::get('article', ['as' => 'article', 'uses' => 'CMS\ArticleController@index']);;
 });

@@ -27,6 +27,7 @@ return new class extends Migration
         });
         Schema::create('cms_contact', function (Blueprint $table) {
             $table->id();
+            $table->string('section')->unique();
             $table->string('title')->nullable();
             $table->longText('content')->nullable();
             $table->timestamps();

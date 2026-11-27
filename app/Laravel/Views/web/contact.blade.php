@@ -7,40 +7,28 @@
 
                 <!-- Header -->
                 <div class="text-center text-md-end mb-5">
-                    <h1 class="display-4 fw-bold mb-3">Get in Touch</h1>
-                    <p class="lead text-secondary mb-0">
-                        Have a question, suggestion, or something worth sharing?
-                        We'd love to hear from you.
-                    </p>
+                    <h1 class="display-4 fw-bold mb-3">{{ $contactSections->get('heading')->title ?? 'Get in Touch' }}</h1>
+                    <div class="lead text-secondary mb-0">{!! $contactSections->get('heading')->content ?? "<p>Have a question, suggestion, or something worth sharing?<br>We'd love to hear from you.</p>" !!}</div>
                 </div>
 
                 <div class="row g-5">
 
                     <!-- Contact Information -->
                     <div class="col-12 col-md-5">
-                        <h4 class="fw-bold mb-3">Let's start a conversation.</h4>
+                        {{-- section 1 --}}
+                        <h4 class="fw-bold mb-3">{{ $contactSections->get('conversation')->title ?? "Let's start a conversation." }}</h4>
 
-                        <p class="text-secondary mb-4">
-                            Whether you have feedback about our articles, need assistance,
-                            or simply want to connect, feel free to send us a message.
-                            We're always happy to hear from our readers.
-                        </p>
+                        <div class="text-secondary mb-4">{!! $contactSections->get('conversation')->content ?? "Whether you have feedback about our articles, need assistance,\nor simply want to connect, feel free to send us a message.\nWe're always happy to hear from our readers." !!}</div>
 
+                        {{-- section 2 --}}
                         <div class="contact-info mb-4">
-                            <h6 class="fw-bold mb-2">What can we help you with?</h6>
-                            <ul class="list-unstyled text-secondary">
-                                <li class="mb-2">Article inquiries and suggestions</li>
-                                <li class="mb-2">Feedback and recommendations</li>
-                                <li class="mb-2">Technical support and assistance</li>
-                                <li>General questions and collaborations</li>
-                            </ul>
+                            <h6 class="fw-bold mb-2">{{ $contactSections->get('help')->title ?? 'What can we help you with?' }}</h6>
+                            <div class="text-secondary">{!! $contactSections->get('help')->content ?? '<ul><li>Article inquiries and suggestions</li><li>Feedback and recommendations</li><li>Technical support and assistance</li><li>General questions and collaborations</li></ul>' !!}</div>
                         </div>
 
+                        {{-- section --}}
                         <div class="border-start border-primary border-3 ps-3">
-                            <p class="text-secondary mb-0">
-                                Your thoughts matter. Every message helps us make
-                                TheArticle a better place for readers and creators.
-                            </p>
+                            <div class="text-secondary mb-0">{!! $contactSections->get('closing')->content ?? 'Your thoughts matter. Every message helps us make TheArticle a better place for readers and creators.' !!}</div>
                         </div>
                     </div>
 
@@ -108,6 +96,12 @@
 
         .contact-info li {
             font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding-left: 0;
         }
 
         .form-control {
