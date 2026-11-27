@@ -22,6 +22,7 @@ class MainController extends Controller
 
     public function about(PageRequest $request)
     {
+        $this->data['record'] = auth('user')->user();
         $this->data['page_title'] = 'About Page';
         $this->data['aboutSections'] = About::all()->keyBy('section');
 
@@ -30,6 +31,7 @@ class MainController extends Controller
 
     public function contact(PageRequest $request)
     {
+        $this->data['record'] = auth('user')->user();
         $this->data['page_title'] = 'Contact Page';
         $this->data['contactSections'] = Contact::all()->keyBy('section');
 
@@ -38,12 +40,14 @@ class MainController extends Controller
 
     public function articles(PageRequest $request)
     {
+        $this->data['record'] = auth('user')->user();
         $this->data['page_title'] = 'Articles Page';
         return view('web.articles', $this->data);
     }
 
     public function article(PageRequest $request)
     {
+        $this->data['record'] = auth('user')->user();
         $this->data['page_title'] = 'Article Page';
         return view('web.article', $this->data);
     }
