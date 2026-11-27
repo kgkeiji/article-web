@@ -127,10 +127,10 @@ class ArticleController extends Controller
 
     public function update(ArticleRequest $request, $id = null)
     {
-        $auth = $request->user($this->guard);
         // $article = $request->get('article_data');
         // $article = Article::find($id);
 
+        $auth = $request->user($this->guard);
         $article = Article::where("user_id", $auth->id)
             ->where("id", $id)
             ->first();
