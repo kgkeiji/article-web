@@ -6,15 +6,11 @@
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
             <div>
                 <p class="text-uppercase text-primary fw-semibold small mb-1" style="letter-spacing: 0.05em;">
-                    Content Management
+                    Website Management
                 </p>
                 <h1 class="h3 fw-bold text-dark mb-1">Manage Home Page Content</h1>
                 <p class="text-secondary mb-0">Manage the titles and content displayed on your homepage.</p>
             </div>
-
-            <span class="badge bg-primary-subtle text-primary px-3 py-2">
-                <i class="bi bi-house-door me-1"></i> Homepage Settings
-            </span>
         </div>
 
         <form action="{{ route('portal.cms.store') }}" method="POST">
@@ -71,16 +67,11 @@
                 </div>
             @endforeach
 
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-body p-3 d-flex flex-wrap justify-content-between align-items-center gap-3">
-                    <div>
-                        <span class="fw-semibold d-block">Save Homepage Changes</span>
-                        <small class="text-muted">Make sure your content is correct before saving.</small>
-                    </div>
-                    <button type="submit" class="btn btn-primary px-4 py-2">
-                        <i class="bi bi-check-circle me-2"></i> Save Changes
-                    </button>
-                </div>
+
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-primary px-4 py-2">
+                    <i class="bi bi-check-circle me-2"></i> Save Changes
+                </button>
             </div>
         </form>
     </main>

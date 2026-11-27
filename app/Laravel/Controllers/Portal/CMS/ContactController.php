@@ -10,11 +10,47 @@ use Illuminate\Support\Facades\DB;
 class ContactController extends Controller
 
 {
-    public function __construct() {}
+    public function __construct()
+    {
+        $this->data['sections'] = [
+            'heading' => [
+                'label' => 'Page Heading',
+                'description' => 'The main heading and introduction at the top of the Contact page.',
+                'title' => 'Get in Touch',
+                'content' =>
+                "<p>Have a question, suggestion, or something worth sharing?<br>We'd love to hear from you.</p>",
+                'icon' => 'bi-chat-quote',
+            ],
+            'conversation' => [
+                'label' => 'Conversation',
+                'description' => 'The opening message in the Contact page information panel.',
+                'title' => "Let's start a conversation.",
+                'content' =>
+                "Whether you have feedback about our articles, need assistance,\nor simply want to connect, feel free to send us a message.\nWe're always happy to hear from our readers.",
+                'icon' => 'bi-chat-dots',
+            ],
+            'help' => [
+                'label' => 'Help Topics',
+                'description' => 'The heading and list of topics in the Contact page information panel.',
+                'title' => 'What can we help you with?',
+                'content' =>
+                '<ul><li>Article inquiries and suggestions</li><li>Feedback and recommendations</li><li>Technical support and assistance</li><li>General questions and collaborations</li></ul>',
+                'icon' => 'bi-list-check',
+            ],
+            'closing' => [
+                'label' => 'Closing Message',
+                'description' => 'The highlighted message at the bottom of the information panel.',
+                'title' => '',
+                'content' =>
+                'Your thoughts matter. Every message helps us make TheArticle a better place for readers and creators.',
+                'icon' => 'bi-heart',
+            ],
+        ];
+    }
 
     public function index(PageRequest $request)
     {
-        $this->data['page-title'] = 'Portal Contact Page';
+        $this->data['page_title'] = 'Portal Contact Page';
         $this->data['contactSections'] = Contact::all()->keyBy('section');
 
         return view('portal.cms.contact', $this->data);
